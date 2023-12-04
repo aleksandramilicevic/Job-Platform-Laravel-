@@ -38,7 +38,8 @@ Route::get('/listings/{id}', function($id){
 }
 });*/
 
-//route model binding
+//route model binding it shortens everything basically
+
 Route::get('/listings/{listing}', function(Listing $listing)
 {
     return view('listing', [
