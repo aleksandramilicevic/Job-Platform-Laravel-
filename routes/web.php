@@ -14,13 +14,7 @@ use App\Models\Listing;
 |
 */
 //All listing
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest Listings',
-        'listings'=> Listing::all()
-
-    ]);
-});
+Route::get('/', [ListingController::class, 'index']);
 
 
 //Single listing
@@ -40,12 +34,7 @@ Route::get('/listings/{id}', function($id){
 
 //route model binding it shortens everything basically
 
-Route::get('/listings/{listing}', function(Listing $listing)
-{
-    return view('listing', [
-        'listing' => $listing
-    ]);
-});
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 
 
